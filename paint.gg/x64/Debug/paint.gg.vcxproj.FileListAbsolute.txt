@@ -1,0 +1,2 @@
+D:\Codespace\paint.gg\x64\Debug\raylib.dll
+D:\Codespace\paint.gg\paint.gg\x64\Debug\paint.gg.vcxproj.Up2Date
