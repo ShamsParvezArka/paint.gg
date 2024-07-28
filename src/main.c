@@ -20,6 +20,8 @@ int main() {
     RenderTexture2D canvas = LoadRenderTexture(WINDOW_WIDTH, WINDOW_HEIGHT);
     Rectangle canvas_area = { 116, 16, 1119, 621 };
 
+    Sprite keys = init_sprite("assets/keys.png");
+
     while (!WindowShouldClose()) {
         update_toolbar(&toolbar, tool_selection_buffer, &brush_color);
         update_brush_size(&brush_radius);
@@ -41,6 +43,11 @@ int main() {
                  toolbar.buttons[ERASER].selected == true)) {
                 DrawCircleLinesV(GetMousePosition(), brush_radius, BLACK);
             }
+
+            if (IsKeyPressed(KEY_D))
+                keys.source.y += keys.tex.height / 2;
+
+            rander_sprite(keys);
         }
         EndDrawing();
     }

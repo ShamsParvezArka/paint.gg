@@ -136,6 +136,10 @@ void update_canvas(Toolbar *tb, float brush_radius, Color brush_color) {
     }
 }
 
+void update_sprite(Sprite *s) {
+    return;
+}
+
 void rander_toolbar(Toolbar tb) {
     DrawRectangleRoundedLines(tb.rec, 0.1f, 0, 1, BLACK);
     //DrawRectangleLinesEx(tb.rec, 1.0f, tb.color);
@@ -184,14 +188,38 @@ void rander_canvas(Rectangle area, RenderTexture2D canvas) {
 
 void update_brush_size(float *brush_radius) {
     if (IsKeyDown(KEY_D) && *brush_radius >= BRUSH_SIZE_MIN)
-        *brush_radius -= 0.002f;
+        *brush_radius -= BRUSH_SIZE_CHANGE_RATE;
     if (IsKeyDown(KEY_F) && *brush_radius <= BRUSH_SIZE_MAX)
-        *brush_radius += 0.002f;
+        *brush_radius += BRUSH_SIZE_CHANGE_RATE;
 
     return;
 }
 
-Dynamic_Array da_init() {
+void rander_sprite(Sprite s) {
+    DrawTexturePro(s.tex, s.source, s.destination, s.origin, s.rotation, WHITE);
+
+    return;
+}
+
+Sprite init_sprite(const char *path) {
+    Sprite s = {
+        .tex = LoadTexture(path),
+        .dimension = { s.tex.width / 4, s.tex.height - s.tex.height / 2 },
+        .source = { 2 * s.dimension.x, 0.0f, s.dimension.x , s.dimension.y },
+        .destination = {
+            30,
+            WINDOW_HEIGHT - 50,
+            s.dimension.x * 4.0f,
+            s.dimension.y * 4.0f
+        },
+        .rotation = 0.0f,
+        .origin = s.dimension
+    };
+
+    return s;
+}
+
+Dynamic_Array init_da() {
     Dynamic_Array da = {
         .points = malloc(sizeof(Dynamic_Array) * DA_DEFAULT_CAPACITY),
         .capacity = DA_DEFAULT_CAPACITY,

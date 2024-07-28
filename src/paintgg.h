@@ -21,6 +21,7 @@
 
 #define BRUSH_SIZE_MIN 4.0f
 #define BRUSH_SIZE_MAX 16.0f
+#define BRUSH_SIZE_CHANGE_RATE 0.004f
 
 #define DA_DEFAULT_CAPACITY 1024
 #define DA_AT(da, i) da->points[i]
@@ -53,21 +54,34 @@ typedef struct {
 } Toolbar;
 
 typedef struct {
+    Texture2D tex;
+    Vector2 dimension;
+    Rectangle source;
+    Rectangle destination;
+    float rotation;
+    Vector2 origin;
+} Sprite;
+
+typedef struct {
     Vector2 *points;
     size_t count;
     size_t capacity;
 } Dynamic_Array;
 
+Toolbar       init_toolbar(void);
+Sprite        init_sprite(const char *path);
+Dynamic_Array init_da();
 
-Toolbar init_toolbar(void);
-void swap(int *a, int *b);
 void update_toolbar(Toolbar *tb, int *tool_selection_buffer, Color *brush_color);
 void update_canvas(Toolbar *tb, float brush_radius, Color brush_color);
-void rander_toolbar(Toolbar tb);
-void rander_canvas(Rectangle area, RenderTexture2D canvas);
+void update_sprite(Sprite *s);
 void update_brush_size(float *brush_radius);
 
-Dynamic_Array da_init();
+void rander_toolbar(Toolbar tb);
+void rander_canvas(Rectangle area, RenderTexture2D canvas);
+void rander_sprite(Sprite s);
+
 void da_resolve_capacity(Dynamic_Array *da);
 void da_insert(Dynamic_Array *da, Vector2 point);
+void swap(int *a, int *b);
 

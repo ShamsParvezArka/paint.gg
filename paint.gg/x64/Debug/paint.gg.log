@@ -1,13 +1,2 @@
-﻿  paintgg.c
-D:\Codespace\paint.gg\src\paintgg.c(11,12): warning C4047: 'initializing': 'unsigned int' differs in levels of indirection from 'void *'
-D:\Codespace\paint.gg\src\paintgg.c(17,12): warning C4047: 'initializing': 'unsigned int' differs in levels of indirection from 'void *'
-D:\Codespace\paint.gg\src\paintgg.c(29,12): warning C4047: 'initializing': 'unsigned int' differs in levels of indirection from 'void *'
-D:\Codespace\paint.gg\src\paintgg.c(35,12): warning C4047: 'initializing': 'unsigned int' differs in levels of indirection from 'void *'
-D:\Codespace\paint.gg\src\paintgg.c(41,12): warning C4047: 'initializing': 'unsigned int' differs in levels of indirection from 'void *'
-D:\Codespace\paint.gg\src\paintgg.c(47,12): warning C4047: 'initializing': 'unsigned int' differs in levels of indirection from 'void *'
-D:\Codespace\paint.gg\src\paintgg.c(88,21): warning C4013: 'printf' undefined; assuming extern returning int
-D:\Codespace\paint.gg\src\paintgg.c(177,54): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-D:\Codespace\paint.gg\src\paintgg.c(177,62): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-D:\Codespace\paint.gg\src\paintgg.c(201,5): warning C4013: 'memset' undefined; assuming extern returning int
-D:\Codespace\paint.gg\src\paintgg.c(207,49): warning C4244: 'initializing': conversion from 'double' to 'size_t', possible loss of data
+﻿  main.c
   paint.gg.vcxproj -> D:\Codespace\paint.gg\x64\Debug\paint.gg.exe
